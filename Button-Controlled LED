@@ -1,0 +1,35 @@
+// C++ code
+// Button-Controlled LED
+int Led_pin=8;
+int Button_pin=7;
+
+byte lastbuttonstate;
+byte ledstate=LOW;
+
+void setup()
+{
+  pinMode(Led_pin, OUTPUT);
+  pinMode(Button_pin, INPUT);
+  lastbuttonstate = digitalRead(Button_pin);
+}
+
+void loop()
+{
+  byte buttonstate = digitalRead(Button_pin);
+  if (buttonstate != lastbuttonstate)
+  {
+    lastbuttonstate=buttonstate;
+    if (buttonstate==LOW)
+    {
+      if (ledstate==HIGH)
+      {
+        ledstate=LOW;
+      }
+      else
+      {
+        ledstate=HIGH;
+      }
+      digitalWrite(Led_pin, ledstate);
+    }
+  }
+}
