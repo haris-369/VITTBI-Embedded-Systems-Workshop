@@ -1,0 +1,17 @@
+// C+++ code
+// Buzzer Alarm
+int Buzzer = 4;
+int Button = 7;
+
+void setup() {
+  pinMode(Buzzer, OUTPUT);
+  pinMode(Button, INPUT);
+}
+
+void loop() {
+  if (digitalRead(Button) == HIGH) {
+    digitalWrite(Buzzer, HIGH);
+  } else {
+    digitalWrite(Buzzer, LOW);
+  }
+}
